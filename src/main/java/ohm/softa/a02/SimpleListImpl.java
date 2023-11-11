@@ -57,10 +57,12 @@ public class SimpleListImpl implements SimpleList, Iterable {
                 if (!hasNext()) {
                     throw new NoSuchElementException();
                 }
-                current = current.next;
+                Object itemToReturn = current.item;
+                current = current.next; // Move the iterator to the next element after returning the item.
                 position++;
-                return current.item;
+                return itemToReturn;
             }
+
         };
     }
 
